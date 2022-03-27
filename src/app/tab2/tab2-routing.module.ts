@@ -6,7 +6,15 @@ const routes: Routes = [
   {
     path: '',
     component: Tab2Page,
+  },  {
+    path: 'admin-calendar',
+    loadChildren: () => import('./pages/admin-calendar/admin-calendar.module').then( m => m.AdminCalendarPageModule)
+  },
+  {
+    path: 'home-calendar',
+    loadChildren: () => import('./pages/home-calendar/home-calendar.module').then( m => m.HomeCalendarPageModule)
   }
+
 ];
 
 @NgModule({

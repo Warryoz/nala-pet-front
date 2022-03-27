@@ -6,7 +6,16 @@ const routes: Routes = [
   {
     path: '',
     component: Tab3Page,
+  },
+  {
+    path: 'admin-pets',
+    loadChildren: () => import('./pages/admin-pets/admin-pets.module').then( m => m.AdminPetsPageModule)
+  },
+  {
+    path: 'home-pets',
+    loadChildren: () => import('./pages/home-pets/home-pets.module').then( m => m.HomePetsPageModule)
   }
+
 ];
 
 @NgModule({
