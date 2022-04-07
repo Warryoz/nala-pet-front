@@ -9,6 +9,8 @@ import { ExploreContainerComponentModule } from '../explore-container/explore-co
 import { PetsPageRoutingModule } from './pets-routing.module';
 import { ComponentsModule } from '../components/components.module';
 
+import {CardModule} from 'primeng/card';
+
 @NgModule({
   imports: [
     IonicModule,
@@ -17,7 +19,8 @@ import { ComponentsModule } from '../components/components.module';
     ExploreContainerComponentModule,
     RouterModule.forChild([{ path: '', component: PetsPage }]),
     PetsPageRoutingModule,
-    ComponentsModule
+    ComponentsModule,
+    CardModule
   ],
   declarations: [PetsPage]
 })

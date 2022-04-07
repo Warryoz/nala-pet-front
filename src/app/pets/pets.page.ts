@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PetsService } from './services/pets.service';
 
+
 @Component({
   selector: 'app-pets',
   templateUrl: 'pets.page.html',
@@ -8,12 +9,12 @@ import { PetsService } from './services/pets.service';
 })
 export class PetsPage  implements OnInit {
 
-  pet: any;
+  pets: any;
 
   constructor( private petsService: PetsService ) {}
 
   ngOnInit() {
-    this.petsService.getPets().subscribe( pets => this.pet = pets )
+    this.petsService.getPets().subscribe( pets => this.pets = pets )
   }
 
 
