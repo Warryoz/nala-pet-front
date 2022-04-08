@@ -25,7 +25,7 @@ export class IonMenuComponent implements OnInit {
     },
     {
       title: 'Mascotas',
-      url: '/tabs/tab3',
+      url: '/tabs/pets',
       icon: 'paw'
     },
     {

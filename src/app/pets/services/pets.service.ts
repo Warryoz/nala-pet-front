@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { IPet } from '../interfaces/pet.interface';
 
 
 @Injectable({
@@ -13,9 +14,9 @@ export class PetsService {
   url = 'http://localhost:8080/api/v1/pets';
 
 
-  getPets(): Observable<any> {
+  getPets(): Observable<IPet[]> {
 
-      return  this.http.get<any>(this.url);
+      return  this.http.get<IPet[]>(this.url);
 
   }
 
