@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-ion-navbar',
+  selector: 'nala-navbar',
   templateUrl: './ion-navbar.component.html',
   styleUrls: ['./ion-navbar.component.scss'],
 })

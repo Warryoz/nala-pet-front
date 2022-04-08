@@ -1,40 +1,42 @@
 import { Component, OnInit } from '@angular/core';
 import { PetsService } from './services/pets.service';
-import { delay } from 'rxjs/operators';
 import { IPet } from './interfaces/pet.interface';
-import { RefresherCustomEvent } from '@ionic/angular';
+import { RefresherCustomEvent, ToastController } from '@ionic/angular';
 
 @Component({
-  selector: 'app-pets',
+  selector: 'nala-pets',
   templateUrl: 'pets.page.html',
   styleUrls: ['pets.page.scss'],
 })
 export class PetsPage implements OnInit {
   pets: IPet[];
 
-  constructor(private petsService: PetsService) {}
+  constructor(private petsService: PetsService
+    ,public toastController: ToastController) {}
 
   ngOnInit() {
     this.getAllPets();
   }
 
-  getAllPets(event?: RefresherCustomEvent) {
-    this.petsService
-      .getPets()
-      .pipe(delay(1000))
-      .subscribe((pets) => {
-        this.pets = pets;
-        if (event) event.target.complete();
+  getAllPets(refreshPets?: RefresherCustomEvent) {
+    this.petsService.getPets().subscribe(pets => {
+      this.pets = pets;
+      if (refreshPets) refreshPets.target.complete();
+    }, async error  => {
+      console.error(error);
+      const toast = await this.toastController.create({
+        message: 'Error consultando tus mascotas :(',
+        duration: 2000,
+        color: 'danger',
+        position: 'top'
       });
+      toast.present();
+      if (refreshPets) refreshPets.target.complete();
+    }
+    );
   }
 
-  // refreshPets(event ) {
-  //   setTimeout(() => {
-  //     event.target.complete();
-  //   }, 10500);
-  // }
-
-  refreshPets(event) {
-    this.getAllPets(event);
+  refreshPets(refreshPets: RefresherCustomEvent ) {
+    this.getAllPets(refreshPets);
   }
 }

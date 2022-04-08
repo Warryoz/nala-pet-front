@@ -1,71 +1,12 @@
-<app-ion-navbar title="Mascotas"></app-ion-navbar>
+<nala-navbar title="Mascotas"></nala-navbar>
 
-<ion-content [fullscreen]="true">
+<ion-content>
   <ion-refresher slot="fixed" (ionRefresh)="refreshPets($event)">
     <ion-refresher-content
       refreshingSpinner="circles"
       pullingIcon="refresh-outline"
     ></ion-refresher-content>
   </ion-refresher>
-
-  <div *ngIf="!pets">
-    <ion-grid>
-      <ion-row class="ion-justify-content-center">
-        <ion-col
-          size="12"
-          size-lg="2.5"
-          size-md="4"
-          size-sm="6"
-          size-xs="12"
-          *ngFor="let i of [].constructor(3)"
-        >
-          <ion-card>
-            <ion-skeleton-text
-              animated
-              style="height: 14rem"
-            ></ion-skeleton-text>
-            <ion-card-header>
-              <ion-list>
-                <ion-item class="ion-no-padding" lines="none">
-                  <ion-skeleton-text
-                    animated
-                    style="height: 1rem; width: 20rem"
-                  ></ion-skeleton-text>
-                  <ion-skeleton-text
-                    animated
-                    style="height: 2rem; width: 2rem; border-radius: 100%"
-                    slot="end"
-                  ></ion-skeleton-text>
-                </ion-item>
-                <ion-item class="ion-no-padding" lines="none">
-                  <ion-skeleton-text
-                    animated
-                    style="height: 1.5rem"
-                  ></ion-skeleton-text>
-                  <ion-skeleton-text
-                    animated
-                    style="height: 2rem; width: 2rem; border-radius: 100%"
-                    slot="end"
-                  ></ion-skeleton-text>
-                </ion-item>
-                <ion-item class="ion-no-padding" lines="none">
-                  <ion-skeleton-text
-                    animated
-                    style="height: 1rem"
-                  ></ion-skeleton-text>
-                  <ion-skeleton-text
-                    animated
-                    style="height: 2rem; width: 2rem; border-radius: 100%"
-                    slot="end"
-                  ></ion-skeleton-text>
-                </ion-item>
-              </ion-list>
-            </ion-card-header>
-          </ion-card>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </div>
 
   <ion-grid>
     <ion-row class="ion-justify-content-center">
@@ -97,6 +38,60 @@
                 <ion-card-subtitle>{{ pet.birthDate }}</ion-card-subtitle>
                 <ion-icon name="create-outline" slot="end" color="tertiary">
                 </ion-icon>
+              </ion-item>
+            </ion-list>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid *ngIf="!pets">
+    <ion-row class="ion-justify-content-center">
+      <ion-col
+        size="12"
+        size-lg="2.5"
+        size-md="4"
+        size-sm="6"
+        size-xs="12"
+        *ngFor="let i of [].constructor(5)"
+      >
+        <ion-card>
+          <ion-skeleton-text animated style="height: 14rem"></ion-skeleton-text>
+          <ion-card-header>
+            <ion-list>
+              <ion-item class="ion-no-padding" lines="none">
+                <ion-skeleton-text
+                  animated
+                  style="height: 1rem; width: 20rem"
+                ></ion-skeleton-text>
+                <ion-skeleton-text
+                  animated
+                  style="height: 2rem; width: 2rem; border-radius: 100%"
+                  slot="end"
+                ></ion-skeleton-text>
+              </ion-item>
+              <ion-item class="ion-no-padding" lines="none">
+                <ion-skeleton-text
+                  animated
+                  style="height: 1.5rem"
+                ></ion-skeleton-text>
+                <ion-skeleton-text
+                  animated
+                  style="height: 2rem; width: 2rem; border-radius: 100%"
+                  slot="end"
+                ></ion-skeleton-text>
+              </ion-item>
+              <ion-item class="ion-no-padding" lines="none">
+                <ion-skeleton-text
+                  animated
+                  style="height: 1rem"
+                ></ion-skeleton-text>
+                <ion-skeleton-text
+                  animated
+                  style="height: 2rem; width: 2rem; border-radius: 100%"
+                  slot="end"
+                ></ion-skeleton-text>
               </ion-item>
             </ion-list>
           </ion-card-header>
