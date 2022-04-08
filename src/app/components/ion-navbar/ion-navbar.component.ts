@@ -1,16 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'nala-navbar',
   templateUrl: './ion-navbar.component.html',
   styleUrls: ['./ion-navbar.component.scss'],
 })
-export class IonNavbarComponent implements OnInit {
-
+export class IonNavbarComponent{
   @Input() title = '';
-
-  constructor() { }
-
-  ngOnInit() {}
-
 }
