@@ -11,17 +11,18 @@ import { RefresherCustomEvent, ToastController } from '@ionic/angular';
 export class PetsPage implements OnInit {
   pets: IPet[];
 
-  constructor(private petsService: PetsService
-    ,public toastController: ToastController) {}
+  constructor(
+    private petsService: PetsService,
+    public toastController: ToastController) {}
 
   ngOnInit() {
     this.getAllPets();
   }
 
   getAllPets(refreshPets?: RefresherCustomEvent) {
-    this.petsService.getPets().subscribe(pets => {
+    this.petsService.getPets().subscribe(async (pets) => {
       this.pets = pets;
-      if (refreshPets) refreshPets.target.complete();
+      if (refreshPets) await refreshPets.target.complete();
     }, async error  => {
       console.error(error);
       const toast = await this.toastController.create({
@@ -30,8 +31,8 @@ export class PetsPage implements OnInit {
         color: 'danger',
         position: 'top'
       });
-      toast.present();
-      if (refreshPets) refreshPets.target.complete();
+      await toast.present();
+      if (refreshPets) await refreshPets.target.complete();
     }
     );
   }
