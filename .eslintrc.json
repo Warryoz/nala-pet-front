@@ -24,7 +24,7 @@
           "error",
           {
             "type": "element",
-            "prefix": "app",
+            "prefix": "nala",
             "style": "kebab-case"
           }
         ],
@@ -32,10 +32,11 @@
           "error",
           {
             "type": "attribute",
-            "prefix": "app",
+            "prefix": "nala",
             "style": "camelCase"
           }
-        ]
+        ],
+        "curly": ["error", "multi-line"]
       }
     },
     {

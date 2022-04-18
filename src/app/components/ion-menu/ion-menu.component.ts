@@ -3,52 +3,47 @@ import { MenuController } from '@ionic/angular';
 
 
 @Component({
-  selector: 'app-ion-menu',
+  selector: 'nala-menu',
   templateUrl: './ion-menu.component.html',
   styleUrls: ['./ion-menu.component.scss'],
 })
-export class IonMenuComponent implements OnInit {
-
+export class IonMenuComponent {
 
   title = 'Menú';
 
   menus = [
     {
-      title: 'Home',
+      title: 'Inicio',
       url: '/tabs/tab1',
-      icon: 'home'
+      icon: 'home-outline'
     },
     {
       title: 'Calendario',
       url: '/tabs/tab2',
-      icon: 'calendar'
+      icon: 'calendar-outline'
     },
     {
       title: 'Mascotas',
-      url: '/tabs/tab3',
-      icon: 'paw'
+      url: '/tabs/pets',
+      icon: 'paw-outline'
     },
     {
       title: 'Usuarios',
       url: '/tabs/tab4',
-      icon: 'person'
+      icon: 'person-outline'
     },
     {
       title: 'Citas',
       url: '/tabs/tab5',
-      icon: 'folder-open'
+      icon: 'folder-open-outline'
     },
 
-  ]
+  ];
 
   constructor(private menucontroller: MenuController) { }
 
-  ngOnInit() {}
-
   closeMenu() {
-
     this.menucontroller.close();
-
   }
 
 }

@@ -3,11 +3,13 @@ import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Tab3Page } from './tab3.page';
+import { PetsPage } from './pets.page';
 import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
 
-import { Tab3PageRoutingModule } from './tab3-routing.module';
+import { PetsPageRoutingModule } from './pets-routing.module';
 import { ComponentsModule } from '../components/components.module';
+
+import {CardModule} from 'primeng/card';
 
 @NgModule({
   imports: [
@@ -15,10 +17,11 @@ import { ComponentsModule } from '../components/components.module';
     CommonModule,
     FormsModule,
     ExploreContainerComponentModule,
-    RouterModule.forChild([{ path: '', component: Tab3Page }]),
-    Tab3PageRoutingModule,
-    ComponentsModule
+    RouterModule.forChild([{ path: '', component: PetsPage }]),
+    PetsPageRoutingModule,
+    ComponentsModule,
+    CardModule
   ],
-  declarations: [Tab3Page]
+  declarations: [PetsPage]
 })
-export class Tab3PageModule {}
+export class PetsPageModule {}
