@@ -1,0 +1,89 @@
+<ion-header mode="md">
+  <ion-toolbar color="light">
+    <ion-buttons slot="start">
+      <ion-button>
+        <ion-icon
+          slot="icon-only"
+          color="secondary"
+          name="paw-outline"
+        ></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button color="secondary" (click)="dismiss()">
+        <ion-icon
+          slot="icon-only"
+          color="danger"
+          name="close-circle-outline"
+        ></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{ title }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <form [formGroup]="petForm">
+      <ion-row>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label position="floating">Nombre</ion-label>
+            <ion-input
+              inputmode="text"
+              type="text"
+              formControlName="name"
+            ></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label inputmode="text" position="floating"
+              >Fecha de nacimiento</ion-label
+            >
+            <ion-input
+              type="date"
+              placeholder="text"
+              placeholder="yyyy-mm-dd"
+              min="1997-01-01"
+              formControlName="birthDate"
+            ></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label position="floating">Raza</ion-label>
+            <ion-input
+              inputmode="text"
+              type="text"
+              formControlName="race"
+            ></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="12">
+          <ion-item lines="none">
+            <ion-label>¿Tiene vacunas al día?</ion-label>
+            <ion-checkbox
+            formControlName="hasVaccineUpdated"
+              checked="false"
+              color="primary"
+              mode="ios"
+            ></ion-checkbox>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </form>
+    <ion-row class="ion-justify-content-center">
+      <ion-button
+        [disabled]="!petForm.valid"
+        expand="block"
+        fill="outline"
+        size="medium"
+        mode="ios"
+        (click)="onSubmit()"
+      >
+        {{ buttonText}}
+      </ion-button>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -5,8 +5,6 @@ import { IonMenuComponent } from './ion-menu/ion-menu.component';
 import { IonNavbarComponent } from './ion-navbar/ion-navbar.component';
 import { RouterModule } from '@angular/router';
 
-
-
 @NgModule({
   declarations: [
     IonMenuComponent,

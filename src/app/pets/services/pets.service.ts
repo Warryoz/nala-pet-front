@@ -13,7 +13,15 @@ export class PetsService {
   constructor(private http: HttpClient ) { }
 
   getPets(): Observable<IPet[]> {
-      return  this.http.get<IPet[]>(this.url);
+      return this.http.get<IPet[]>(this.url);
+  }
+
+  createPet(newPet: IPet): Observable<IPet>{
+    return this.http.post<IPet>(this.url, newPet);
+  }
+
+  updatePet(newPet: IPet): Observable<IPet>{
+    return this.http.put<IPet>(`${this.url}/${newPet.id}`, newPet);
   }
 
 

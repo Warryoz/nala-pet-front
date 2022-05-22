@@ -1,14 +1,15 @@
-<nala-navbar title="Mascotas"></nala-navbar>
+<nala-navbar title="Mis Mascotas"></nala-navbar>
 
 <ion-content>
   <ion-refresher slot="fixed" (ionRefresh)="refreshPets($event)">
-    <ion-refresher-content
-      refreshingSpinner="circles"
-      pullingIcon="refresh-outline"
-    ></ion-refresher-content>
+    <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
-
-  <ion-grid>
+  <ion-fab *ngIf="pets?.length > 0" vertical="bottom" horizontal="end" slot="fixed">       
+    <ion-fab-button (click)="newPet()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-grid *ngIf="pets?.length > 0">
     <ion-row class="ion-justify-content-center">
       <ion-col
         size="12"
@@ -17,11 +18,10 @@
         size-sm="6"
         size-xs="12"
         *ngFor="let pet of pets"
+        (click)="editPet(pet.id)"
       >
         <ion-card>
-          <img
-            src="https://cssdeck.com/blog/wp-content/uploads/2017/04/Screen-Shot-2017-04-25-at-5.15.15-PM.png"
-          />
+          <ion-img src="assets/img/pet.svg" alt="Pet"> </ion-img>
           <ion-card-header>
             <ion-list>
               <ion-item class="ion-no-padding" lines="none">
@@ -36,17 +36,29 @@
               </ion-item>
               <ion-item class="ion-no-padding" lines="none">
                 <ion-card-subtitle>{{ pet.birthDate }}</ion-card-subtitle>
-                <ion-icon name="create-outline" slot="end" color="tertiary">
-                </ion-icon>
               </ion-item>
             </ion-list>
           </ion-card-header>
         </ion-card>
       </ion-col>
+     
+    </ion-row>
+  </ion-grid>
+  <ion-grid class="h-100 ion-no-padding" *ngIf="pets?.length === 0">
+    <ion-row class="ion-justify-content-center ion-align-items-center h-100">
+      <ion-text color="secondary" class="ion-text-center">
+        <ion-img src="assets/img/no-pets.svg" alt="No pets"> </ion-img>
+        <h3 class="ion-no-padding" >Registra tu mascota aquí:</h3>
+        <ion-fab horizontal="center">       
+          <ion-fab-button (click)="newPet()">
+            <ion-icon name="add"></ion-icon>
+          </ion-fab-button>
+        </ion-fab>
+      </ion-text>
     </ion-row>
   </ion-grid>
 
-  <ion-grid *ngIf="!pets">
+  <ion-grid *ngIf="pets === undefined">
     <ion-row class="ion-justify-content-center">
       <ion-col
         size="12"
