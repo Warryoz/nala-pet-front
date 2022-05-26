@@ -7,12 +7,13 @@ import { TabsPageRoutingModule } from './tabs-routing.module';
 import { TabsPage } from './tabs.page';
 import { ComponentsModule } from '../components/components.module';
 
+
 @NgModule({
   imports: [
     IonicModule,
     CommonModule,
     TabsPageRoutingModule,
-    ComponentsModule
+    ComponentsModule,
   ],
   declarations: [TabsPage]
 })
