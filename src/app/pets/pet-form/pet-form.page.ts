@@ -88,7 +88,7 @@ export class PetFormPage implements OnInit{
   private async errorPetFormToast(message: string) {
     const toast = await this.toastController.create({
       message,
-      duration: 2000,
+      duration: 3500,
       color: 'danger',
       position: 'top',
     });
@@ -98,7 +98,7 @@ export class PetFormPage implements OnInit{
   private async successPetFormToast(message: string) {
     const toast = await this.toastController.create({
       message,
-      duration: 2000,
+      duration: 3500,
       color: 'success',
       position: 'top',
     });
