@@ -5,6 +5,11 @@ import { TabsPage } from './tabs.page';
 const routes: Routes = [
   {
     path: '',
+    redirectTo: '/calendar',
+    pathMatch: 'full'
+  },
+  {
+    path: '',
     component: TabsPage,
     children: [
       {
@@ -21,11 +26,6 @@ const routes: Routes = [
       },
     ]
   },
-  {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
-  }
 ];
 
 @NgModule({

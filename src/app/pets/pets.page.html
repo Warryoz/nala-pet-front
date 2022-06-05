@@ -48,7 +48,7 @@
   <ion-grid class="h-100 ion-no-padding" *ngIf="pets?.length === 0">
     <ion-row class="ion-justify-content-center ion-align-items-center h-100">
       <ion-text color="primary" class="ion-text-center">
-        <ion-img src="assets/img/no-pets.svg" alt="No pets"> </ion-img>
+        <ion-img src="assets/img/no-pets.svg" alt="No pets" class="try-again"> </ion-img>
         <h3 class="ion-no-padding" >Agrega tu mascota</h3>
         <ion-fab horizontal="center" color="medium">       
           <ion-fab-button (click)="newPet()">
@@ -62,10 +62,10 @@
   <ion-grid class="h-100 ion-no-padding" *ngIf="pets === null">
     <ion-row class="ion-justify-content-center ion-align-items-center h-100">
       <ion-text color="primary" class="ion-text-center">
-        <ion-img src="assets/img/not-found.svg" alt="No pets"> </ion-img>
+        <ion-img src="assets/img/not-found.svg" alt="No pets" class="try-again"> </ion-img>
         <h3 class="ion-no-padding" >Inténtalo de nuevo</h3>
         <ion-fab horizontal="center">       
-          <ion-fab-button (click)="refreshPets()">
+          <ion-fab-button (click)="refreshPets($event)">
             <ion-icon name="refresh" *ngIf="!isFreshing"></ion-icon>
             <ion-spinner name="lines-small" *ngIf="isFreshing"></ion-spinner>
           </ion-fab-button>

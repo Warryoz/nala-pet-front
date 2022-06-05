@@ -1,6 +1,6 @@
 {
-	"appId": "io.ionic.starter",
-	"appName": "front",
+	"appId": "com.nala",
+	"appName": "Nala",
 	"webDir": "www",
 	"bundledWebRuntime": false
 }

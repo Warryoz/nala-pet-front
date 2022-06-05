@@ -33,11 +33,7 @@
             ],
             "styles": [
               "src/theme/variables.scss",
-              "src/global.scss",
-              "node_modules/primeng/resources/themes/saga-blue/theme.css",
-              "node_modules/primeng/resources/primeng.min.css",
-              "node_modules/primeicons/primeicons.css"
-            ],
+              "src/global.scss"],
             "scripts": [],
             "aot": false,
             "vendorChunk": true,
@@ -103,11 +99,7 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
-            "styles": [
-              "node_modules/primeng/resources/themes/saga-blue/theme.css",
-              "node_modules/primeng/resources/primeng.min.css",
-              "node_modules/primeicons/primeicons.css"
-            ],
+            "styles": [],
             "scripts": [],
             "assets": [
               {

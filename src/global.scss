@@ -16,7 +16,7 @@
 @import "~@ionic/angular/css/normalize.css";
 @import "~@ionic/angular/css/structure.css";
 @import "~@ionic/angular/css/typography.css";
-@import '~@ionic/angular/css/display.css';
+@import "~@ionic/angular/css/display.css";
 
 /* Optional CSS utils that can be commented out */
 @import "~@ionic/angular/css/padding.css";
@@ -24,19 +24,43 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
-
+/* angular-cli file: src/styles.css */
 ion-refresher {
-    padding-top: 2rem;
+  padding-top: 2rem;
 }
 
 ion-toolbar {
-    --background: transparent;
+  --background: transparent;
 }
 
-.h-100{
-    height: 100%;
+.h-100 {
+  height: 100%;
 }
 
-.ion-flex{
-    display: flex;
+.ion-flex {
+  display: flex;
+}
+
+ion-img.try-again{
+  max-width: 20rem;
+}
+
+//Full calendar styling
+.fc-toolbar {
+  margin: 0.2rem;
+  flex-wrap: wrap;
+}
+
+.fc.fc-theme-standard .fc-toolbar .fc-button {
+  background-color: var(--ion-color-secondary) !important;
+  color: var(--ion-color-light) !important;
+  background-image: none;
+}
+
+.fc .fc-col-header-cell-cushion{
+    color: var(--ion-color-light-contrast);
+}
+
+.fc .fc-daygrid-day-number{
+    color: var(--ion-color-light-contrast);
 }

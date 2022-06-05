@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1008099236530",
+    "project_id": "nala-e91ea",
+    "storage_bucket": "nala-e91ea.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1008099236530:android:1f0f996ba09cf9a43cc7ab",
+        "android_client_info": {
+          "package_name": "com.nala"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1008099236530-j8m4j6orv7agbmtl29p3htn5i2idfkuf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDI7Ew94EG1eghEcQhOyoorXRwSeYohlpY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1008099236530-j8m4j6orv7agbmtl29p3htn5i2idfkuf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

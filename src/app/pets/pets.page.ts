@@ -3,8 +3,8 @@ import {
   ModalController,
   RefresherCustomEvent,
   ToastController,
+  Platform
 } from '@ionic/angular';
-
 import { IPet } from './interfaces/pet.interface';
 import { PetFormPage } from './pet-form/pet-form.page';
 import { PetsService } from './services/pets.service';
@@ -18,16 +18,17 @@ export class PetsPage implements OnInit {
   pets: IPet[];
   isFreshing = false;
   constructor(
-    private toastController: ToastController,
-    private modalController: ModalController,
-    private petsService: PetsService
+    private readonly platform: Platform,
+    private readonly toastController: ToastController,
+    private readonly modalController: ModalController,
+    private readonly petsService: PetsService
   ) {}
 
   ngOnInit() {
     this.getAllPets();
   }
 
-  refreshPets(refreshPets: RefresherCustomEvent) {
+  refreshPets(refreshPets) {
     this.isFreshing = true;
     this.getAllPets(refreshPets);
   }
@@ -37,7 +38,7 @@ export class PetsPage implements OnInit {
     const modal = await this.modalController.create({
       component: PetFormPage,
       componentProps: { petToEdit: pet },
-      initialBreakpoint: 0.5,
+      initialBreakpoint: this.platform.is('mobile') ? 0.6 : 1,
     });
     modal.present();
     modal.onWillDismiss().then((wasUpdated) => {
@@ -48,7 +49,7 @@ export class PetsPage implements OnInit {
   async newPet() {
     const modal = await this.modalController.create({
       component: PetFormPage,
-      initialBreakpoint: 0.5,
+      initialBreakpoint: this.platform.is('mobile') ? 0.6 : 1,
     });
     modal.present();
     modal.onWillDismiss().then((wasRecordered) => {

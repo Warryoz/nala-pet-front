@@ -7,14 +7,9 @@ const routes: Routes = [
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
   },
   {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
-  },  {
-    path: 'calendar',
-    loadChildren: () => import('./calendar/calendar.module').then( m => m.CalendarPageModule)
+    path: 'event-form',
+    loadChildren: () => import('./calendar/event-form/event-form.module').then( m => m.EventFormPageModule)
   },
-
 ];
 @NgModule({
   imports: [

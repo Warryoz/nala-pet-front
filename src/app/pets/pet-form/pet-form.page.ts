@@ -22,11 +22,11 @@ export class PetFormPage implements OnInit{
   buttonText = 'Crear mascota';
   hasToUpdate = false;
   constructor(
-    private formBuilder: FormBuilder,
-    private modalController: ModalController,
-    private toastController: ToastController,
-    private loadingController: LoadingController,
-    private petService: PetsService
+    private readonly formBuilder: FormBuilder,
+    private readonly modalController: ModalController,
+    private readonly toastController: ToastController,
+    private readonly loadingController: LoadingController,
+    private readonly petService: PetsService
   ) {}
   ngOnInit(): void {
     if(!this.petToEdit) return;
@@ -70,7 +70,6 @@ export class PetFormPage implements OnInit{
     });
     await loading.present();
     const petToEdit: IPet = this.petForm.value as IPet;
-    console.log(petToEdit);
     this.petService.updatePet(petToEdit).subscribe(
      async () => {
       await this.successPetFormToast('Mascota actualizada correctamente :)');

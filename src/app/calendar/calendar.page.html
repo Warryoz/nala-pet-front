@@ -1,7 +1,159 @@
-<nala-navbar title="Calendario"></nala-navbar>
+<nala-navbar title="Mi calendario"></nala-navbar>
 
 <ion-content>
+  <ion-refresher slot="fixed">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
 
-  <full-calendar [options]="calendarOptions"></full-calendar>
+  <ion-toolbar class="ion-wrap-list" *ngIf="showCalendar">
+        <ion-button id="calendar-view" slot="start" color="secondary">
+          <ion-icon size="large" name="calendar-outline" color="light" class="ion-margin-end"></ion-icon>
+          <ion-label color="light" >Modo</ion-label>
+        </ion-button>
+        <ion-popover trigger="calendar-view" size="auto">
+          <ng-template>
+            <ion-list>
+              <ion-chip
+                color="medium"
+                (click)="changeView(calendarViews.listWeek)"
+              >
+                <ion-icon size="large" name="reader-outline"></ion-icon>
+                <ion-label>Agenda</ion-label>
+              </ion-chip>
+              <ion-chip
+                color="medium"
+                (click)="changeView(calendarViews.timeGridDay)"
+              >
+                <ion-icon size="large" name="today-outline"></ion-icon>
+                <ion-label>Día</ion-label>
+              </ion-chip>
+              <ion-chip
+                color="medium"
+                (click)="changeView(calendarViews.dayGridMonth)"
+              >
+                <ion-icon size="large" name="calendar-clear-outline"></ion-icon>
+                <ion-label>Mes</ion-label>
+              </ion-chip>
+              <ion-chip
+                color="medium"
+                (click)="changeView(calendarViews.timeGridWeek)"
+              >
+                <ion-icon size="large" name="film-outline"></ion-icon>
+                <ion-label>Semana</ion-label>
+              </ion-chip>
+              <ion-chip
+                color="medium"
+                class="ion-text-center"
+                (click)="changeView(calendarViews.threeDayWeek)"
+              >
+                <ion-icon size="large" name="filter-outline"></ion-icon>
+                <ion-label>3 días</ion-label>
+              </ion-chip></ion-list
+            >
+          </ng-template>
+        </ion-popover>
+      <ion-button color="secondary" (click)="previous()" slot="end">
+        <ion-icon size="large" color="light"  name="arrow-back-outline"></ion-icon>
+      </ion-button>
+      <ion-button color="secondary" (click)="next()" slot="end">
+        <ion-icon size="large"color="light"   name="arrow-forward-outline"></ion-icon>
+      </ion-button>
+    </ion-toolbar>
 
+  <ion-fab
+    vertical="bottom"
+    horizontal="center"
+    slot="fixed"
+    (click)="hideCalendar()"
+  >
+  <ion-fab-button color="primary">
+    <ion-icon size="large" name="add" color="light"></ion-icon>
+  </ion-fab-button>
+
+    <ion-fab-list side="top">
+      <ion-chip color="medium" (click)="changeView(calendarViews.dayGridMonth)">
+        <ion-icon size="large" name="today-outline"></ion-icon>
+        <ion-label>Evento</ion-label>
+      </ion-chip>
+      <ion-chip color="medium" (click)="changeView(calendarViews.dayGridMonth)">
+        <ion-icon size="large" name="notifications-outline"></ion-icon>
+        <ion-label>Recordatorio</ion-label>
+      </ion-chip>
+    </ion-fab-list>
+  </ion-fab>
+
+  <full-calendar
+    #calendar
+    *ngIf="showCalendar"
+    style="padding: 0.1rem"
+    [options]="calendarOptions"
+  ></full-calendar>
+
+  <ion-grid class="h-100 ion-no-padding" *ngIf="events?.length === 0">
+    <ion-row class="ion-justify-content-center ion-align-items-center h-100">
+      <ion-text color="primary" class="ion-text-center">
+        <ion-img
+          src="assets/img/calendar/schedule.svg"
+          alt="No events"
+          class="try-again"
+        >
+        </ion-img>
+        <h3 class="ion-no-padding">Agrega tu primer evento!</h3>
+        <ion-fab horizontal="center" color="medium">
+          <ion-fab-button (click)="newPet()">
+            <ion-icon name="add"></ion-icon>
+          </ion-fab-button>
+        </ion-fab>
+      </ion-text>
+    </ion-row>
+  </ion-grid>
+
+  <!-- <ion-grid class="h-100" *ngIf="events === undefined">
+    <ion-toolbar>
+      <ion-skeleton-text
+        slot="start"
+        animated
+        style="width: 4rem; height: 4rem; border-radius: 100%"
+      ></ion-skeleton-text>
+      <div slot="end" style="display: flex">
+        <ion-skeleton-text
+          animated
+          style="width: 3rem; height: 3rem; margin-right: 0.5rem"
+        ></ion-skeleton-text>
+        <ion-skeleton-text
+          animated
+          style="width: 3rem; height: 3rem"
+        ></ion-skeleton-text>
+      </div>
+    </ion-toolbar>
+
+    <ion-row class="h-100">
+      <ion-col size="2" *ngFor="let i of [].constructor(18)">
+        <ion-skeleton-text
+          animated
+          style="width: 100%; height: 100%"
+        ></ion-skeleton-text>
+      </ion-col>
+    </ion-row>
+  </ion-grid> -->
+
+  <ion-grid class="h-100 ion-no-padding" *ngIf="events === null">
+    <ion-row class="ion-justify-content-center ion-align-items-center h-100">
+      <ion-text color="primary" class="ion-text-center">
+        <ion-img
+          src="assets/img/calendar/not-found.svg"
+          alt="No events"
+          class="try-again"
+        >
+        </ion-img>
+        <h3 class="ion-no-padding">Inténtalo de nuevo</h3>
+        <ion-fab horizontal="center">
+          <ion-fab-button (click)="refreshPets($event)">
+            <ion-icon name="refresh" *ngIf="!isFreshing"></ion-icon>
+            <ion-spinner name="lines-small" *ngIf="isFreshing"></ion-spinner>
+          </ion-fab-button>
+        </ion-fab>
+      </ion-text>
+    </ion-row>
+  </ion-grid>
 </ion-content>

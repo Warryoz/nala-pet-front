@@ -8,17 +8,18 @@ import { CalendarPageRoutingModule } from './calendar-routing.module';
 
 import { CalendarPage } from './calendar.page';
 import { ComponentsModule } from '../components/components.module';
-/* Importing the fullcalendar module and the plugins. */
+
 import { FullCalendarModule } from '@fullcalendar/angular';
-import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin!
-import interactionPlugin from '@fullcalendar/interaction'; // a plugin!
+import dayGridPlugin from '@fullcalendar/daygrid';
+import interactionPlugin from '@fullcalendar/interaction';
 import listPlugin from '@fullcalendar/list';
+import timeGridPlugin from '@fullcalendar/timegrid';
 
-
-FullCalendarModule.registerPlugins([ // register FullCalendar plugins
+FullCalendarModule.registerPlugins([
   dayGridPlugin,
   interactionPlugin,
-  listPlugin
+  listPlugin,
+  timeGridPlugin,
 ]);
 
 @NgModule({
@@ -28,8 +29,8 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     IonicModule,
     CalendarPageRoutingModule,
     ComponentsModule,
-    FullCalendarModule
+    FullCalendarModule,
   ],
-  declarations: [CalendarPage]
+  declarations: [CalendarPage],
 })
 export class CalendarPageModule {}
