@@ -30,11 +30,24 @@ export class CalendarPage implements OnInit,AfterViewInit {
       },
       threeDayWeek: {
         type: 'timeGridWeek',
+        timeFormat: 'h(:mm)t',
         displayEventTime: false,
         duration: { days: 3 },
         buttonText: '3 dias',
       },
     },
+    slotLabelFormat:{
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: true,
+      meridiem: 'short',
+      },
+    eventTimeFormat: {
+        hour: '2-digit',
+        minute: '2-digit',
+        meridiem: 'short',
+        hour12: true
+       },
     initialView: 'dayGridMonth',
     height: '100%',
     contentHeight: 'auto',
@@ -43,13 +56,7 @@ export class CalendarPage implements OnInit,AfterViewInit {
     selectable: true,
     select: this.addNewEvent.bind(this),
     eventClick: this.editNewEvent.bind(this),
-    eventTimeFormat: {
-      hour: 'numeric',
-      minute: '2-digit',
-      second: '2-digit',
-      omitZeroMinute: true,
-      hour12: false,
-    },
+    displayEventTime: true,
     events: [
       {
         id: 'a', // this object will be "parsed" into an Event Object
@@ -62,6 +69,7 @@ export class CalendarPage implements OnInit,AfterViewInit {
         start: '2022-06-04 10:00:00',
       },
     ],
+
     eventColor: '#5e17eb',
     eventBackgroundColor: '#5e17eb',
     eventBorderColor: '#5e17eb',

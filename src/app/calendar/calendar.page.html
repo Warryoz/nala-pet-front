@@ -100,7 +100,7 @@
         </ion-img>
         <h3 class="ion-no-padding">Agrega tu primer evento!</h3>
         <ion-fab horizontal="center" color="medium">
-          <ion-fab-button (click)="newPet()">
+          <ion-fab-button>
             <ion-icon name="add"></ion-icon>
           </ion-fab-button>
         </ion-fab>
@@ -148,9 +148,9 @@
         </ion-img>
         <h3 class="ion-no-padding">Inténtalo de nuevo</h3>
         <ion-fab horizontal="center">
-          <ion-fab-button (click)="refreshPets($event)">
-            <ion-icon name="refresh" *ngIf="!isFreshing"></ion-icon>
-            <ion-spinner name="lines-small" *ngIf="isFreshing"></ion-spinner>
+          <ion-fab-button>
+            <ion-icon name="refresh"></ion-icon>
+            <ion-spinner name="lines-small"></ion-spinner>
           </ion-fab-button>
         </ion-fab>
       </ion-text>
